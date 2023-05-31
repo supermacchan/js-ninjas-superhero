@@ -13,8 +13,7 @@ const Home = () => {
                 {superheroes.map(hero => 
                     <Card 
                         key={nanoid()}
-                        hero={hero.nickname}
-                        image={hero.images[0]}
+                        hero={hero}
                     />
                 )}
             </Grid>
