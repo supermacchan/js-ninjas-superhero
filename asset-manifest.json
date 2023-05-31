@@ -1,20 +1,22 @@
 {
   "files": {
     "main.css": "/js-ninjas-superhero/static/css/main.da7e7622.css",
-    "main.js": "/js-ninjas-superhero/static/js/main.42bc7789.js",
+    "main.js": "/js-ninjas-superhero/static/js/main.6aa59a2b.js",
     "static/js/100.60cc8862.chunk.js": "/js-ninjas-superhero/static/js/100.60cc8862.chunk.js",
-    "static/js/131.e314e74c.chunk.js": "/js-ninjas-superhero/static/js/131.e314e74c.chunk.js",
+    "static/js/878.5cc2ded0.chunk.js": "/js-ninjas-superhero/static/js/878.5cc2ded0.chunk.js",
+    "static/js/845.d70dcc43.chunk.js": "/js-ninjas-superhero/static/js/845.d70dcc43.chunk.js",
     "static/js/256.39467f20.chunk.js": "/js-ninjas-superhero/static/js/256.39467f20.chunk.js",
     "static/js/398.d9c929ec.chunk.js": "/js-ninjas-superhero/static/js/398.d9c929ec.chunk.js",
     "index.html": "/js-ninjas-superhero/index.html",
     "main.da7e7622.css.map": "/js-ninjas-superhero/static/css/main.da7e7622.css.map",
-    "main.42bc7789.js.map": "/js-ninjas-superhero/static/js/main.42bc7789.js.map",
+    "main.6aa59a2b.js.map": "/js-ninjas-superhero/static/js/main.6aa59a2b.js.map",
     "100.60cc8862.chunk.js.map": "/js-ninjas-superhero/static/js/100.60cc8862.chunk.js.map",
-    "131.e314e74c.chunk.js.map": "/js-ninjas-superhero/static/js/131.e314e74c.chunk.js.map",
+    "878.5cc2ded0.chunk.js.map": "/js-ninjas-superhero/static/js/878.5cc2ded0.chunk.js.map",
+    "845.d70dcc43.chunk.js.map": "/js-ninjas-superhero/static/js/845.d70dcc43.chunk.js.map",
     "398.d9c929ec.chunk.js.map": "/js-ninjas-superhero/static/js/398.d9c929ec.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.da7e7622.css",
-    "static/js/main.42bc7789.js"
+    "static/js/main.6aa59a2b.js"
   ]
 }
