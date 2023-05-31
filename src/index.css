@@ -15,8 +15,34 @@ code {
   --main-bg-color: #fff;
   --secondary-bg-color: #f2f2f2;
   --hover-bg-color: #570d81;
-  --main-text-color: #2a0230;
+  --main-text-color: #43044d;
   --secondary-text-color: #66107c;
   --light-text-color: #fff;
   --accent-text-color: #cc00b1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
 }

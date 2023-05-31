@@ -20,6 +20,8 @@ export const Nav = styled.nav`
 `
 
 export const Button = styled.span`
+    cursor: pointer;
+
     box-sizing: border-box;
     padding: 10px 15px;
     border: none;
