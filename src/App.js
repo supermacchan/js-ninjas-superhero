@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Home = lazy(() => import('./pages/Home/Home'));
 const Edit = lazy(() => import('./pages/Edit/Edit'));
+const Create = lazy(() => import('./pages/Create/Create'));
 const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
             <Route path='edit' element={<Edit />} />
+            <Route path='create' element={<Create />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

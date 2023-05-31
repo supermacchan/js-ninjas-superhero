@@ -10,7 +10,7 @@ export const Header = () => {
                         Show All
                     </Button>    
                 </NavLink>
-                <NavLink to="/edit" style={{textDecoration: "none", color: "inherit"}}>
+                <NavLink to="/create" style={{textDecoration: "none", color: "inherit"}}>
                     <Button>
                         Add New Hero
                     </Button>     

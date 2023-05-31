@@ -1,10 +1,10 @@
 import { EditForm } from "components/EditForm/EditForm";
-import { Main, Title, Section } from "./Edit.styled";
+import { Main, Title, Section } from "./Create.styled";
 
-const Edit = () => {
+const Create = () => {
     return (
         <Main>
-            <Title>Let's update the info!</Title>
+            <Title>Let's meet our Hero!</Title>
             <Section>
                 <EditForm />
             </Section>
@@ -12,4 +12,4 @@ const Edit = () => {
     )
 }
 
-export default Edit;
+export default Create;
