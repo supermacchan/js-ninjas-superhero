@@ -1,3 +1,5 @@
+@import-normalize; /* bring in normalize.css styles */
+
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
@@ -13,7 +15,7 @@ code {
 :root {
   --accent-bg-color: #bd71db;
   --main-bg-color: #fff;
-  --secondary-bg-color: #f2f2f2;
+  --secondary-bg-color: #f5d8fd;
   --hover-bg-color: #570d81;
   --main-text-color: #43044d;
   --secondary-text-color: #66107c;

@@ -8,7 +8,7 @@ const Home = () => {
 
     return (
         <Main>
-            <Title>Let's meet the Heroes!</Title>
+            <Title>Check out the Superheroes!</Title>
             <Grid>
                 {superheroes.map(hero => 
                     <Card 

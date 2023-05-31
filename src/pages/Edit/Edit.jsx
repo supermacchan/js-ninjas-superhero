@@ -1,9 +1,14 @@
+import { EditForm } from "components/EditForm/EditForm";
+import { Main, Title, Section } from "./Edit.styled";
+
 const Edit = () => {
     return (
-        <>
-            <h1>Edit</h1>
-        {/* render cards */}
-        </>
+        <Main>
+            <Title>Let's meet our Hero!</Title>
+            <Section>
+                <EditForm />
+            </Section>
+        </Main>
     )
 }
 
