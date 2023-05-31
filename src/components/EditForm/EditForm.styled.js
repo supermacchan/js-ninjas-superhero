@@ -18,10 +18,13 @@ export const Label = styled.label`
     display: block;
     margin-bottom: 10px;
     padding-top: 10px;
+
+    font-weight: 500;
 `
 
 export const Description = styled.p`
     padding-top: 10px;
+    font-weight: 500;
 `
 
 export const FileInput = styled.input`
