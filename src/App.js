@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout/Layout';
+import { NotFoundPage } from 'pages/NotFound/NotFoundPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,7 +19,10 @@ const App = () => {
           <Route index element={<Home />} />
             <Route path='edit' element={<Edit />} />
             <Route path='create' element={<Create />} />
-          <Route path="*" element={<NotFound />} />
+          {/* 404 Not Found Page with delayed redirect */}
+          <Route path="*" element={
+            <NotFoundPage component={NotFound} redirectTo="/" />
+          } />
         </Route>
       </Routes>
 
