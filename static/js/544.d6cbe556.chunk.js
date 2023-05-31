@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkjs_ninjas_superhero=self.webpackChunkjs_ninjas_superhero||[]).push([[544],{544:function(e,n,s){s.r(n);var r=s(184);n.default=function(){return(0,r.jsx)(r.Fragment,{})}}}]);
-//# sourceMappingURL=544.d6cbe556.chunk.js.map

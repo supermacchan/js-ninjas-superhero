@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkjs_ninjas_superhero=self.webpackChunkjs_ninjas_superhero||[]).push([[45],{45:function(e,n,s){s.r(n);var r=s(184);n.default=function(){return(0,r.jsx)(r.Fragment,{children:(0,r.jsx)("h1",{children:"Edit"})})}}}]);
+//# sourceMappingURL=45.5bc3b6b6.chunk.js.map
