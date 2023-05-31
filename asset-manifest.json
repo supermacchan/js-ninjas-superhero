@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/js-ninjas-superhero/static/css/main.82e2eea3.css",
-    "main.js": "/js-ninjas-superhero/static/js/main.92d95c7f.js",
-    "static/js/544.06662987.chunk.js": "/js-ninjas-superhero/static/js/544.06662987.chunk.js",
+    "main.css": "/js-ninjas-superhero/static/css/main.8352a29e.css",
+    "main.js": "/js-ninjas-superhero/static/js/main.646c4fe7.js",
+    "static/js/823.09f21f33.chunk.js": "/js-ninjas-superhero/static/js/823.09f21f33.chunk.js",
     "static/js/45.5bc3b6b6.chunk.js": "/js-ninjas-superhero/static/js/45.5bc3b6b6.chunk.js",
     "static/js/256.39467f20.chunk.js": "/js-ninjas-superhero/static/js/256.39467f20.chunk.js",
     "index.html": "/js-ninjas-superhero/index.html",
-    "main.82e2eea3.css.map": "/js-ninjas-superhero/static/css/main.82e2eea3.css.map",
-    "main.92d95c7f.js.map": "/js-ninjas-superhero/static/js/main.92d95c7f.js.map",
-    "544.06662987.chunk.js.map": "/js-ninjas-superhero/static/js/544.06662987.chunk.js.map",
+    "main.8352a29e.css.map": "/js-ninjas-superhero/static/css/main.8352a29e.css.map",
+    "main.646c4fe7.js.map": "/js-ninjas-superhero/static/js/main.646c4fe7.js.map",
+    "823.09f21f33.chunk.js.map": "/js-ninjas-superhero/static/js/823.09f21f33.chunk.js.map",
     "45.5bc3b6b6.chunk.js.map": "/js-ninjas-superhero/static/js/45.5bc3b6b6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.82e2eea3.css",
-    "static/js/main.92d95c7f.js"
+    "static/css/main.8352a29e.css",
+    "static/js/main.646c4fe7.js"
   ]
 }
