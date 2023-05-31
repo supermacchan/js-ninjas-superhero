@@ -8,7 +8,7 @@ const Home = lazy(() => import('./pages/Home/Home'));
 const Edit = lazy(() => import('./pages/Edit/Edit'));
 const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 
-function App() {
+const App = () => {
   return (
     <>
 
