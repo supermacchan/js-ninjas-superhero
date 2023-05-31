@@ -1,0 +1,1 @@
+(self.webpackChunkjs_ninjas_superhero=self.webpackChunkjs_ninjas_superhero||[]).push([[256],{256:function(){}}]);
