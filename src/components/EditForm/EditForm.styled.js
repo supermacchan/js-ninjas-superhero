@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Form = styled.form`
     max-width: 800px;
-    padding: 10px;
 
     margin: 0 auto;
 
@@ -93,6 +92,30 @@ export const Button = styled.button`
     text-transform: uppercase;
     font-weight: 500;
     font-size: 16px;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        background-color: var(--hover-bg-color);
+    }
+`
+
+export const DeleteBtn = styled.button`
+    cursor: pointer;
+
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+
+    background-color: var(--accent-text-color);
+    color: var(--light-text-color);
+
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 13px;
 
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 

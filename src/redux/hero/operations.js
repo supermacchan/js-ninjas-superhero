@@ -67,11 +67,10 @@ const updateHero = createAsyncThunk(
 const deleteHero = createAsyncThunk(
     'hero/delete',
     async (id, thunkAPI) => {
-        console.log(id);
         try {
             const { data } = await instance.delete(`/heroes/${id}`);
             console.log('DELETED');
-            toast.success('As per your request, a hero has fallen!')
+            toast.success('You have just killed a hero...')
             return data;
         } catch (err) {
             toast.error(err.message);

@@ -6,6 +6,7 @@ import {
     FileInput,
     TextArea, 
     Button, 
+    DeleteBtn,
     MainInfo,
     AdditionalInfo,
     Block
@@ -83,6 +84,17 @@ export const EditForm = ({ info }) => {
         }
     }
 
+    const handleDelete = () => {
+        if (location.pathname !== '/edit') {
+            return;
+        }
+
+        const id = info._id
+        dispatch(operations.deleteHero(id));
+        navigate('/');
+        reset();
+    }
+
     const reset = () => {
         setNickname('');
         setName('');
@@ -93,6 +105,10 @@ export const EditForm = ({ info }) => {
 
     return (
         <>
+            {location.pathname === '/edit' && 
+                <DeleteBtn type="button" onClick={handleDelete}>Delete Hero</DeleteBtn>
+            }
+
             <Form onSubmit={handleFormSubmit}>
                 <MainInfo>
                     <Block>
@@ -165,6 +181,7 @@ export const EditForm = ({ info }) => {
                             placeholder="List the powers..." 
                             value={powers}
                             onChange={onInputChange}
+                            style={{height: '120px'}}
                         />
 
                         <Label htmlFor="catchphrase">Catchphrase</Label> 
