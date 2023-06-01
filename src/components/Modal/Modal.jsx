@@ -16,8 +16,11 @@ import {
     Buttons,
     Button
 } from './Modal.styled';
+import { useDispatch } from 'react-redux';
+import { updateCurrent } from 'redux/hero/slice';
 
 export const Modal = ({ hero, onClose }) => {
+    const dispatch = useDispatch();
     useEffect(() => {
         const handleKeydown = event => {
             if (event.code === 'Escape') {
@@ -37,6 +40,10 @@ export const Modal = ({ hero, onClose }) => {
             onClose();
         }
     };
+
+    const handleEditClick = () => {
+        dispatch(updateCurrent(hero._id));
+    }
 
     const modalRoot = document.querySelector('#modal-root');
     
@@ -59,7 +66,7 @@ export const Modal = ({ hero, onClose }) => {
                 <Text><Heading>Catchphrase:</Heading> {hero.catch_phrase}</Text>
 
                 <Buttons>
-                    <Link to={"/edit"}>
+                    <Link to={"/edit"} onClick={handleEditClick}>
                         <FiEdit3 size={20} />
                     </Link>
                     <Button type='button' onClick={onClose}>

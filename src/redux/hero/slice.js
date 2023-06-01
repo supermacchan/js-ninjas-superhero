@@ -3,6 +3,7 @@ import { operations } from './operations';
 
 const initialState = {
   heroes: [],
+  current: null,
   isLoading: false,
   error: null,
 };
@@ -10,6 +11,11 @@ const initialState = {
 export const heroSlice = createSlice({
   name: 'hero',
   initialState,
+  reducers: {
+    updateCurrent (state, action) {
+      state.current = action.payload;
+    }
+  },
   extraReducers: {
     [operations.getAllHeroes.fulfilled](state, action) {
       const page = Number(action.payload.page);
@@ -35,4 +41,5 @@ export const heroSlice = createSlice({
   },
 });
 
-export default heroSlice.reducer;
+export const { updateCurrent } = heroSlice.actions;
+export const heroReducer = heroSlice.reducer;

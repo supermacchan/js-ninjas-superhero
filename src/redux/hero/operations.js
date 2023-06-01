@@ -22,7 +22,25 @@ const getAllHeroes = createAsyncThunk(
 )
 
 
+// const updateUserData = createAsyncThunk(
+//   'auth/updateUserData',
+//   async (updateData, thunkAPI) => {
+//     try {
+//       const { data } = await instanceBacEnd.patch('/users/update', updateData, {
+//         headers: {
+//           'Content-type': 'multipart/form-data',
+//         },
+//       });
 
+//       Notiflix.Notify.success(`Info changed`);
+//       return data;
+//     } catch (err) {
+//       Notiflix.Notify.success(err.message);
+
+//       return thunkAPI.rejectWithValue(err.message);
+//     }
+//   }
+// );
 
 export const operations = {
     getAllHeroes,

@@ -10,8 +10,51 @@ import {
     AdditionalInfo,
     Block
 } from "./EditForm.styled"
+import { useState, useEffect } from "react";
 
-export const EditForm = () => {
+export const EditForm = ({ info }) => {
+    const [nickname, setNickname] = useState('');
+    const [name, setName] = useState('');
+    const [origin, setOrigin] = useState('');
+    const [powers, setPowers] = useState('');
+    const [phrase, setPhrase] = useState('');
+
+    const onInputChange = (e) => {
+        switch (e.target.name) {
+            case "nickname": 
+                setNickname(e.target.value);
+                break;
+            case "real_name": 
+                setName(e.target.value);
+                break;
+            case "origin": 
+                setOrigin(e.target.value);
+                break;
+            case "superpowers": 
+                setPowers(e.target.value);
+                break;
+            case "catchphrase": 
+                setPhrase(e.target.value);
+                break;
+            default: 
+                return;
+        }
+    }
+
+    useEffect(() => {
+        if (!info) {
+            return;
+        }
+
+        const { nickname, real_name, origin_description, superpowers, catch_phrase } = info;
+        setNickname(nickname);
+        setName(real_name);
+        setOrigin(origin_description);
+        setPowers(superpowers);
+        setPhrase(catch_phrase);
+
+    }, [info]);
+
     return (
         <>
             <Form>
@@ -34,6 +77,8 @@ export const EditForm = () => {
                             name="nickname" 
                             id="nickname"
                             placeholder="Enter name..." 
+                            value={nickname}
+                            onChange={onInputChange}
                             required
                         />
 
@@ -43,6 +88,8 @@ export const EditForm = () => {
                             name="real_name" 
                             id="real_name"
                             placeholder="Enter name..." 
+                            value={name}
+                            onChange={onInputChange}
                             required
                         />
                     </Block>
@@ -71,6 +118,8 @@ export const EditForm = () => {
                             name="origin" 
                             id="origin"
                             placeholder="Tell the story..." 
+                            value={origin}
+                            onChange={onInputChange}
                         />
 
                         <Label htmlFor="superpowers">Superpowers</Label> 
@@ -78,6 +127,8 @@ export const EditForm = () => {
                             name="superpowers" 
                             id="superpowers"
                             placeholder="List the powers..." 
+                            value={powers}
+                            onChange={onInputChange}
                         />
 
                         <Label htmlFor="catchphrase">Catchphrase</Label> 
@@ -85,6 +136,8 @@ export const EditForm = () => {
                             name="catchphrase" 
                             id="catchphrase"
                             placeholder="The hero says..." 
+                            value={phrase}
+                            onChange={onInputChange}
                             style={{height: '90px'}}
                         />
                     </Block>
