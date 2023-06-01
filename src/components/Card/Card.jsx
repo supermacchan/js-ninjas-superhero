@@ -1,6 +1,7 @@
 import { CardContainer, ImgContainer, Image, Name } from "./Card.styled";
 import { Modal } from "components/Modal/Modal";
 import { useState } from 'react';
+import photo from "../../images/photo.png"
 
 export const Card = ({ hero }) => {
     const [showModal, setShowModal] = useState(false);
@@ -13,7 +14,7 @@ export const Card = ({ hero }) => {
         <>
             <CardContainer onClick={toggleModal}>
                 <ImgContainer>
-                    <Image src={hero.images[0]} alt={hero.nickname}/>
+                    <Image src={hero.images[0] || photo} alt={hero.nickname}/>
                 </ImgContainer>
                 <Name>{hero.nickname}</Name>
             </CardContainer>
