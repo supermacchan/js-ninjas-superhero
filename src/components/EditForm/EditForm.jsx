@@ -11,6 +11,9 @@ import {
     Block
 } from "./EditForm.styled"
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { operations } from "redux/hero/operations";
 
 export const EditForm = ({ info }) => {
     const [nickname, setNickname] = useState('');
@@ -18,6 +21,9 @@ export const EditForm = ({ info }) => {
     const [origin, setOrigin] = useState('');
     const [powers, setPowers] = useState('');
     const [phrase, setPhrase] = useState('');
+    const location = useLocation();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const onInputChange = (e) => {
         switch (e.target.name) {
@@ -55,9 +61,39 @@ export const EditForm = ({ info }) => {
 
     }, [info]);
 
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+
+        const newInfo = {
+            nickname: nickname,
+            real_name: name,
+            origin_description: origin,
+            superpowers: powers,
+            catch_phrase: phrase
+        }
+
+        if (location.pathname === '/create') {
+            dispatch(operations.createHero(newInfo));
+            navigate('/');
+            reset();
+        }
+
+        if (location.pathname === '/edit') {
+            dispatch(operations.updateHero({id: info._id, newInfo}));
+        }
+    }
+
+    const reset = () => {
+        setNickname('');
+        setName('');
+        setOrigin('');
+        setPowers('');
+        setPhrase('');
+    }
+
     return (
         <>
-            <Form>
+            <Form onSubmit={handleFormSubmit}>
                 <MainInfo>
                     <Block>
                         <Label htmlFor="main_image">Choose the main image</Label>
@@ -66,7 +102,7 @@ export const EditForm = ({ info }) => {
                             id="main_image"
                             name="main_image" 
                             accept="image/png, image/jpeg"
-                            required
+                            // required
                         />
                     </Block>
                     

@@ -38,6 +38,18 @@ export const heroSlice = createSlice({
       state.error = action.payload;
     },
 
+    [operations.createHero.fulfilled](state, action) {
+      state.error = null;
+      state.isLoading = false;
+      state.heroes.push(action.payload.data);
+    },
+    [operations.createHero.pending](state, action) {
+      state.isLoading = true;
+    },
+    [operations.createHero.rejected](state, action) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
   },
 });
 
