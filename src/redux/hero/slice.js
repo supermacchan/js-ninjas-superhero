@@ -38,16 +38,13 @@ export const heroSlice = createSlice({
       state.error = action.payload;
     },
 
-    [operations.createHero.fulfilled](state, action) {
-      state.error = null;
-      state.isLoading = false;
-      state.heroes.push(action.payload.data);
+    [operations.updateHero.fulfilled](state, action) {
+      const index = state.heroes.indexOf(action.payload.data);
+      if (index > 0) {
+        state.heroes.splice(index, 1, action.payload.data);
+      }
     },
-    [operations.createHero.pending](state, action) {
-      state.isLoading = true;
-    },
-    [operations.createHero.rejected](state, action) {
-      state.isLoading = false;
+    [operations.updateHero.rejected](state, action) {
       state.error = action.payload;
     },
   },
