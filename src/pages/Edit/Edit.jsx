@@ -11,7 +11,7 @@ const Edit = () => {
 
     return (
         <Main>
-            <Title>Let's update the info!</Title>
+            <Title>Feel free to update the info~</Title>
             <Section>
                 <EditForm info={hero}/>
             </Section>

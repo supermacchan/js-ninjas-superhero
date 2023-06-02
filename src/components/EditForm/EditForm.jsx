@@ -9,12 +9,18 @@ import {
     DeleteBtn,
     MainInfo,
     AdditionalInfo,
-    Block
-} from "./EditForm.styled"
+    Block,
+    Gallery,
+    ImgContainer, 
+    Image,
+    ImgButton
+} from "./EditForm.styled";
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { operations } from "redux/hero/operations";
+import { nanoid } from "nanoid";
 
 export const EditForm = ({ info }) => {
     const [nickname, setNickname] = useState('');
@@ -26,7 +32,7 @@ export const EditForm = ({ info }) => {
     const [image1, setImage1] = useState(null);
     const [image2, setImage2] = useState(null);
     
-    // const [picture, setPicture] = useState(null);
+    const [pictures, setPictures] = useState([]);
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -60,12 +66,17 @@ export const EditForm = ({ info }) => {
             return;
         }
 
-        const { nickname, real_name, origin_description, superpowers, catch_phrase } = info;
+        const { nickname, real_name, origin_description, superpowers, catch_phrase, images } = info;
         setNickname(nickname);
         setName(real_name);
         setOrigin(origin_description);
         setPowers(superpowers);
         setPhrase(catch_phrase);
+        setMainImg(images[0]);
+        setImage1(images[1]);
+        setImage2(images[2]);
+
+        setPictures(images);
 
         sessionStorage.setItem('hero', JSON.stringify(info));
 
@@ -82,6 +93,7 @@ export const EditForm = ({ info }) => {
             setOrigin(hero.origin_description);
             setPowers(hero.superpowers);
             setPhrase(hero.catch_phrase);
+            setPictures(hero.images);
         }
       }, [location.pathname]);
 
@@ -125,17 +137,22 @@ export const EditForm = ({ info }) => {
         switch (e.target.name) {
             case "main_image": {
                 reader.onloadend = function () {
-                    // setPicture(reader.result);
+                    // setPictures(prevState => [...reader.result, ...prevState]);
+                    // console.log(reader.result);
                     setMainImg(file);
                 };
                 break;
             }
             case "image1": {
-                setImage1(file);
+                reader.onloadend = function () {
+                    setImage1(file);
+                };
                 break;
             }
             case "image2": {
-                setImage2(file);
+                reader.onloadend = function () {
+                    setImage2(file);
+                };
                 break;
             } 
             default: 
@@ -193,7 +210,22 @@ export const EditForm = ({ info }) => {
     return (
         <>
             {location.pathname === '/edit' && 
-                <DeleteBtn type="button" onClick={handleDelete}>Delete Hero</DeleteBtn>
+                <>
+                    <DeleteBtn type="button" onClick={handleDelete}>Delete Hero</DeleteBtn>
+                
+                    <Gallery>
+                        {pictures.map(img => {
+                            return (
+                                <ImgContainer key={nanoid()}>
+                                    <Image src={img} alt={nickname}/>
+                                    <ImgButton type="button" onClick={() => {console.log('click')}}>
+                                        <AiOutlineCloseCircle size={40} />
+                                    </ImgButton>
+                                </ImgContainer>
+                            )
+                        })}
+                    </Gallery>
+                </>
             }
 
             <Form onSubmit={handleFormSubmit}>
@@ -263,7 +295,11 @@ export const EditForm = ({ info }) => {
                             value={origin}
                             onChange={onInputChange}
                         />
+                    </Block>
+                </AdditionalInfo>
 
+                <AdditionalInfo>
+                    <Block>
                         <Label htmlFor="superpowers">Superpowers</Label> 
                         <TextArea 
                             name="superpowers" 
@@ -271,9 +307,10 @@ export const EditForm = ({ info }) => {
                             placeholder="List the powers..." 
                             value={powers}
                             onChange={onInputChange}
-                            style={{height: '120px'}}
+                            style={{height: '90px'}}
                         />
-
+                    </Block>
+                    <Block>
                         <Label htmlFor="catchphrase">Catchphrase</Label> 
                         <TextArea 
                             name="catchphrase" 

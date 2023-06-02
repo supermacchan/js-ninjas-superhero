@@ -7,6 +7,7 @@ export const Main = styled.main`
 export const Title = styled.h1`
     margin-top: 30px;
     color: var(--main-text-color);
+    font-size: 25px;
 `
 
 export const Section = styled.section`

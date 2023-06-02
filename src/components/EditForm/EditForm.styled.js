@@ -63,7 +63,7 @@ export const TextArea = styled.textarea`
     resize: none;
     box-sizing: border-box;
     width: 100%;
-    height: 150px;
+    height: 120px;
 
     padding: 12px 20px;
     
@@ -141,4 +141,72 @@ export const AdditionalInfo = styled.div`
 
 export const Block = styled.div`
     width: 350px;
+`
+
+export const Gallery = styled.div`
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    margin-bottom: 20px;
+`
+
+export const ImgContainer = styled.div`
+    cursor: pointer;
+
+    position: relative;
+
+    box-sizing: border-box;
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.13);
+
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+        &::after {
+            content: '';
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.63);
+        }
+    }
+`
+
+export const ImgButton = styled.button`
+    cursor: pointer;
+
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+
+    background-color: transparent;
+    color: var(--light-text-color);
+
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        transform: translateX(-50%) scale(1.2);
+    }
+`
+
+export const Image = styled.img`
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
 `
