@@ -25,13 +25,11 @@ const createHero = createAsyncThunk(
     'hero/createNew',
     async (newInfo, thunkAPI) => {
         try {
-            const { data } = await instance.post('/heroes', newInfo, 
-            // {
-            //     headers: {
-            //         'Content-type': 'multipart/form-data',
-            //     },
-            // }
-            );
+            const { data } = await instance.post('/heroes', newInfo, {
+                headers: {
+                    'Content-type': 'multipart/form-data',
+                },
+            });
             console.log('SUCCESS');
             toast.success('A new Hero has just been enlisted!')
             return data;
@@ -47,13 +45,11 @@ const updateHero = createAsyncThunk(
     async ({id, newInfo}, thunkAPI) => {
         console.log(id);
         try {
-            const { data } = await instance.put(`/heroes/${id}`, newInfo, 
-            // {
-            //     headers: {
-            //         'Content-type': 'multipart/form-data',
-            //     },
-            // }
-            );
+            const { data } = await instance.put(`/heroes/${id}`, newInfo, {
+                headers: {
+                    'Content-type': 'multipart/form-data',
+                },
+            });
             console.log('UPDATE SUCCESS');
             toast.success('You have successfully updated the info!')
             return data;

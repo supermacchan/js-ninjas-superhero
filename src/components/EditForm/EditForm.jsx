@@ -22,6 +22,12 @@ export const EditForm = ({ info }) => {
     const [origin, setOrigin] = useState('');
     const [powers, setPowers] = useState('');
     const [phrase, setPhrase] = useState('');
+    const [mainImg, setMainImg] = useState(null);
+    const [image1, setImage1] = useState(null);
+    const [image2, setImage2] = useState(null);
+    
+    // const [picture, setPicture] = useState(null);
+
     const location = useLocation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -65,13 +71,7 @@ export const EditForm = ({ info }) => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
-        const newInfo = {
-            nickname: nickname,
-            real_name: name,
-            origin_description: origin,
-            superpowers: powers,
-            catch_phrase: phrase
-        }
+        const newInfo = formRequest();
 
         if (location.pathname === '/create') {
             dispatch(operations.createHero(newInfo));
@@ -93,6 +93,62 @@ export const EditForm = ({ info }) => {
         dispatch(operations.deleteHero(id));
         navigate('/');
         reset();
+    }
+
+    const handleUploadClick = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+
+        if (!file) { 
+            return;
+        }
+
+        reader.readAsDataURL(file);
+
+        switch (e.target.name) {
+            case "main_image": {
+                reader.onloadend = function () {
+                    // setPicture(reader.result);
+                    setMainImg(file);
+                };
+                break;
+            }
+            case "image1": {
+                setImage1(file);
+                break;
+            }
+            case "image2": {
+                setImage2(file);
+                break;
+            } 
+            default: 
+                return;
+        }
+    }
+
+
+    const formRequest = () => {
+        const data = new FormData();
+        
+        if (mainImg) {
+            data.append('img', mainImg);
+        }
+
+        if (image1) {
+            data.append('img', image1);
+        }
+
+        if (image2) {
+            data.append('img', image2);
+        }
+
+        data.append('nickname', nickname);
+        data.append('real_name', name);
+        data.append('origin_description', origin);
+        data.append('superpowers', powers);
+        data.append('catch_phrase', phrase);
+
+        return data;
     }
 
     const reset = () => {
@@ -118,6 +174,7 @@ export const EditForm = ({ info }) => {
                             id="main_image"
                             name="main_image" 
                             accept="image/png, image/jpeg"
+                            onChange={handleUploadClick}
                             // required
                         />
                     </Block>
@@ -153,14 +210,16 @@ export const EditForm = ({ info }) => {
                         <FileInput 
                             type="file" 
                             id="image"
-                            name="image" 
+                            name="image1" 
                             accept="image/png, image/jpeg"
+                            onChange={handleUploadClick}
                         />
                         <FileInput 
                             type="file" 
                             id="image"
-                            name="image" 
+                            name="image2" 
                             accept="image/png, image/jpeg"
+                            onChange={handleUploadClick}
                         />
                     </Block>
                     
