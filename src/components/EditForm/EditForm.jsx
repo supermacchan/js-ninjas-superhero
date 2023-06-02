@@ -1,3 +1,10 @@
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { operations } from "redux/hero/operations";
+import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { nanoid } from "nanoid";
+import { toast } from "react-toastify";
 import { 
     Form, 
     Label, 
@@ -15,13 +22,6 @@ import {
     Image,
     ImgButton
 } from "./EditForm.styled";
-import { AiOutlineCloseCircle } from 'react-icons/ai';
-import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { operations } from "redux/hero/operations";
-import { nanoid } from "nanoid";
-import { toast } from "react-toastify";
 
 export const EditForm = ({ info }) => {
     const [nickname, setNickname] = useState('');
@@ -61,7 +61,7 @@ export const EditForm = ({ info }) => {
         }
     }
 
-    // filling out the form fields when editing a hero
+    // filling out the form fields when opening the Edit page
     useEffect(() => {
         if (!info) {
             return;
@@ -127,13 +127,8 @@ export const EditForm = ({ info }) => {
 
     const handleDeleteImage = (e) => {
         const currentPic = e.currentTarget.children[0].src;
-        // console.log(currentPic);
-
-        // const index = pictures.indexOf(currentPic);
-        // console.log(index);
 
         setPictures(prevState => prevState.filter(img => img !== currentPic));
-        // setPictures(prevState => prevState.filter(img => prevState.indexOf(img) !== index));
 
         switch (pictures.indexOf(currentPic)) {
             case 0:
@@ -161,14 +156,6 @@ export const EditForm = ({ info }) => {
         reader.readAsDataURL(file);
 
         const imgArray = pictures;
-
-        // console.log(pictures);
-        // console.log(reader.result);
-        // console.log(pictures.indexOf(reader.result));
-        // if (pictures.indexOf(reader.result)) {
-            
-        //     console.log('located')
-        // }
 
         switch (e.target.name) {
             case "main_image": {
@@ -235,37 +222,6 @@ export const EditForm = ({ info }) => {
 
     const formRequest = () => {
         const data = new FormData();
-
-        // for (let img of pictures) {
-        //     data.append('img', img);
-        // }
-        // pictures.forEach(img => {
-        //     data.append('img', img);
-        // });
-
-        // if (location.pathname === '/edit') {
-        //     pictures.forEach(img => {
-        //         data.append('img', img);
-        //     })
-        // }
-
-        // if (location.pathname === '/create') {
-        //     if (mainImg) {
-        //         data.append('img', mainImg);
-        //     }
-
-        //     if (image1) {
-        //         data.append('img', image1);
-        //     }
-
-        //     if (image2) {
-        //         data.append('img', image2);
-        //     }
-        // }
-
-        console.log(mainImg);
-        console.log(image1);
-        console.log(image2);
 
         if (mainImg) {
             data.append('img', mainImg);

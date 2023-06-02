@@ -4,7 +4,6 @@ import { operations } from './operations';
 const initialState = {
   heroes: [],
   current: null,
-  isLoading: false,
   error: null,
 };
 
@@ -21,7 +20,6 @@ export const heroSlice = createSlice({
       const page = Number(action.payload.page);
 
       state.error = null;
-      state.isLoading = false;
 
       if (page === 1) {
         state.heroes = action.payload.data;
@@ -30,11 +28,7 @@ export const heroSlice = createSlice({
 
       state.heroes.push(...action.payload.data);
     },
-    [operations.getAllHeroes.pending](state, action) {
-      state.isLoading = true;
-    },
     [operations.getAllHeroes.rejected](state, action) {
-      state.isLoading = false;
       state.error = action.payload;
     },
 

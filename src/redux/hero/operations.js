@@ -14,7 +14,7 @@ const getAllHeroes = createAsyncThunk(
             const { data } = await instance.get(`/heroes/?page=${page}`);
 
             if (data.data.length < 5) {
-                toast.info("All heroes are already here!");
+                toast("All heroes are already here!");
             }
 
             return data;

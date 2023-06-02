@@ -1,6 +1,6 @@
-import { CardContainer, ImgContainer, Image, Name } from "./Card.styled";
-import { Modal } from "components/Modal/Modal";
 import { useState } from 'react';
+import { Modal } from "components/Modal/Modal";
+import { CardContainer, ImgContainer, Image, Name } from "./Card.styled";
 import photo from "../../images/photo.png"
 
 export const Card = ({ hero }) => {

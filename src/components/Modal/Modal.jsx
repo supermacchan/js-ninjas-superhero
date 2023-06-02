@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
+import { updateCurrent } from 'redux/hero/slice';
 import { nanoid } from 'nanoid';
 import { FiEdit3 } from 'react-icons/fi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
@@ -16,8 +18,6 @@ import {
     Buttons,
     Button
 } from './Modal.styled';
-import { useDispatch } from 'react-redux';
-import { updateCurrent } from 'redux/hero/slice';
 
 export const Modal = ({ hero, onClose }) => {
     const dispatch = useDispatch();

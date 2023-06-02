@@ -1,8 +1,8 @@
-import { Card } from "components/Card/Card";
-import { Main, Title, Grid, Button } from "./Home.styled";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { operations } from "../../redux/hero/operations";
+import { Card } from "components/Card/Card";
+import { Main, Title, Grid, Button } from "./Home.styled";
 
 const Home = () => {
     const dispatch = useDispatch();

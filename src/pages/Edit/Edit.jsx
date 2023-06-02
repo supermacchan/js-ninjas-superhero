@@ -1,7 +1,7 @@
-import { EditForm } from "components/EditForm/EditForm";
-import { Main, Title, Section } from "./Edit.styled";
 import { useSelector } from "react-redux";
 import { selectCurrent, selectHeroes } from "redux/selectors";
+import { EditForm } from "components/EditForm/EditForm";
+import { Main, Title, Section } from "./Edit.styled";
 
 const Edit = () => {
     const current = useSelector(selectCurrent);
