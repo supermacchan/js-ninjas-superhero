@@ -3,7 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const instance = axios.create({
-    baseURL: process.env.REACT_APP_BASE_URL,
+    baseURL: process.env.REACT_APP_BASE_URL || 'https://superhero-backend.onrender.com/api',
 });
 
 
