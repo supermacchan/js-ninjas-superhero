@@ -54,6 +54,7 @@ export const EditForm = ({ info }) => {
         }
     }
 
+    // filling out the form fields when editing a hero
     useEffect(() => {
         if (!info) {
             return;
@@ -66,7 +67,23 @@ export const EditForm = ({ info }) => {
         setPowers(superpowers);
         setPhrase(catch_phrase);
 
+        sessionStorage.setItem('hero', JSON.stringify(info));
+
     }, [info]);
+
+    // fetching the hero info for editing upon page refreshing
+    useEffect(() => {
+        if (location.pathname === '/edit') {
+            const storedFormData = sessionStorage.getItem('hero');
+            const hero = JSON.parse(storedFormData);
+
+            setNickname(hero.nickname);
+            setName(hero.real_name);
+            setOrigin(hero.origin_description);
+            setPowers(hero.superpowers);
+            setPhrase(hero.catch_phrase);
+        }
+      }, [location.pathname]);
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
