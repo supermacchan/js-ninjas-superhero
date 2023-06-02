@@ -11,6 +11,8 @@ https://supermacchan.github.io/js-ninjas-superhero/
 
 The project interacts with **Superhero Catalog API**, the documentation for which can be accessed [via this link](https://superhero-backend.onrender.com/api-docs/).
 
+Go to backend repository: [click here](https://github.com/supermacchan/js-ninjas-superhero-backend)
+
 -----------------
 
 ## Getting ready: installing and launching the app
