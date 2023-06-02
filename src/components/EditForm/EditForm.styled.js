@@ -212,13 +212,6 @@ export const ImgButton = styled.button`
 
     background-color: transparent;
     color: var(--light-text-color);
-
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-    &:hover,
-    &:focus {
-        transform: translateX(-50%) scale(1.2);
-    }
 `
 
 export const Image = styled.img`

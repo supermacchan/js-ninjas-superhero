@@ -21,6 +21,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { operations } from "redux/hero/operations";
 import { nanoid } from "nanoid";
+import { toast } from "react-toastify";
 
 export const EditForm = ({ info }) => {
     const [nickname, setNickname] = useState('');
@@ -124,6 +125,31 @@ export const EditForm = ({ info }) => {
         reset();
     }
 
+    const handleDeleteImage = (e) => {
+        const currentPic = e.currentTarget.children[0].src;
+        // console.log(currentPic);
+
+        // const index = pictures.indexOf(currentPic);
+        // console.log(index);
+
+        setPictures(prevState => prevState.filter(img => img !== currentPic));
+        // setPictures(prevState => prevState.filter(img => prevState.indexOf(img) !== index));
+
+        switch (pictures.indexOf(currentPic)) {
+            case 0:
+                setMainImg(null);
+                break;
+            case 1:
+                setImage1(null);
+                break;
+            case 2: 
+                setImage2(null);
+                break;
+            default:
+                return;
+        }
+    }
+
     const handleUploadClick = (e) => {
         const file = e.target.files[0];
         const reader = new FileReader();
@@ -134,24 +160,63 @@ export const EditForm = ({ info }) => {
 
         reader.readAsDataURL(file);
 
+        const imgArray = pictures;
+
+        // console.log(pictures);
+        // console.log(reader.result);
+        // console.log(pictures.indexOf(reader.result));
+        // if (pictures.indexOf(reader.result)) {
+            
+        //     console.log('located')
+        // }
+
         switch (e.target.name) {
             case "main_image": {
                 reader.onloadend = function () {
-                    // setPictures(prevState => [...reader.result, ...prevState]);
-                    // console.log(reader.result);
+                    const duplicate = duplicateCheck(reader.result);
+
+                    if (duplicate) {
+                        e.target.value = null;
+                        return;
+                    }
+
+                    imgArray.splice(0, 1, reader.result);
+                    setPictures(imgArray);
                     setMainImg(file);
+                    e.target.value = null;
+                    return;
                 };
                 break;
             }
             case "image1": {
                 reader.onloadend = function () {
+                    const duplicate = duplicateCheck(reader.result);
+
+                    if (duplicate) {
+                        e.target.value = null;
+                        return;
+                    }
+
+                    imgArray.splice(1, 1, reader.result);
+                    setPictures(imgArray);
                     setImage1(file);
+                    e.target.value = null;
                 };
                 break;
             }
             case "image2": {
                 reader.onloadend = function () {
+                    const duplicate = duplicateCheck(reader.result);
+
+                    if (duplicate) {
+                        e.target.value = null;
+                        return;
+                    }
+
+                    imgArray.splice(2, 1, reader.result);
+                    setPictures(imgArray);
                     setImage2(file);
+                    e.target.value = null;
                 };
                 break;
             } 
@@ -160,10 +225,48 @@ export const EditForm = ({ info }) => {
         }
     }
 
+    const duplicateCheck = (item) => {
+        if (pictures.includes(item)) {
+            toast.error("This image is already uploaded, please select another one!");
+            return true;
+        }
+        return false;
+    }
 
     const formRequest = () => {
         const data = new FormData();
-        
+
+        // for (let img of pictures) {
+        //     data.append('img', img);
+        // }
+        // pictures.forEach(img => {
+        //     data.append('img', img);
+        // });
+
+        // if (location.pathname === '/edit') {
+        //     pictures.forEach(img => {
+        //         data.append('img', img);
+        //     })
+        // }
+
+        // if (location.pathname === '/create') {
+        //     if (mainImg) {
+        //         data.append('img', mainImg);
+        //     }
+
+        //     if (image1) {
+        //         data.append('img', image1);
+        //     }
+
+        //     if (image2) {
+        //         data.append('img', image2);
+        //     }
+        // }
+
+        console.log(mainImg);
+        console.log(image1);
+        console.log(image2);
+
         if (mainImg) {
             data.append('img', mainImg);
         }
@@ -210,23 +313,21 @@ export const EditForm = ({ info }) => {
     return (
         <>
             {location.pathname === '/edit' && 
-                <>
                     <DeleteBtn type="button" onClick={handleDelete}>Delete Hero</DeleteBtn>
-                
-                    <Gallery>
-                        {pictures.map(img => {
-                            return (
-                                <ImgContainer key={nanoid()}>
-                                    <Image src={img} alt={nickname}/>
-                                    <ImgButton type="button" onClick={() => {console.log('click')}}>
-                                        <AiOutlineCloseCircle size={40} />
-                                    </ImgButton>
-                                </ImgContainer>
-                            )
-                        })}
-                    </Gallery>
-                </>
             }
+
+            <Gallery>
+                {pictures.map(img => {
+                    return (
+                        <ImgContainer key={nanoid()} onClick={handleDeleteImage}>
+                            <Image src={img} alt={nickname} />
+                            <ImgButton type="button" onClick={handleDeleteImage}>
+                                <AiOutlineCloseCircle size={40} />
+                            </ImgButton>
+                        </ImgContainer>
+                    )
+                })}
+            </Gallery>
 
             <Form onSubmit={handleFormSubmit}>
                 <MainInfo>
@@ -238,7 +339,6 @@ export const EditForm = ({ info }) => {
                             name="main_image" 
                             accept="image/png, image/jpeg"
                             onChange={handleUploadClick}
-                            // required
                         />
                     </Block>
                     
