@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/js-ninjas-superhero/static/css/main.da7e7622.css",
-    "main.js": "/js-ninjas-superhero/static/js/main.7cb1520f.js",
-    "static/js/796.c3a9affa.chunk.js": "/js-ninjas-superhero/static/js/796.c3a9affa.chunk.js",
-    "static/js/878.453688dc.chunk.js": "/js-ninjas-superhero/static/js/878.453688dc.chunk.js",
-    "static/js/845.a01500be.chunk.js": "/js-ninjas-superhero/static/js/845.a01500be.chunk.js",
+    "main.css": "/js-ninjas-superhero/static/css/main.8d70d421.css",
+    "main.js": "/js-ninjas-superhero/static/js/main.4ac56f01.js",
+    "static/js/796.98c06c39.chunk.js": "/js-ninjas-superhero/static/js/796.98c06c39.chunk.js",
+    "static/js/905.c57b98d5.chunk.js": "/js-ninjas-superhero/static/js/905.c57b98d5.chunk.js",
+    "static/js/845.cdd0bd14.chunk.js": "/js-ninjas-superhero/static/js/845.cdd0bd14.chunk.js",
     "static/js/333.95df8106.chunk.js": "/js-ninjas-superhero/static/js/333.95df8106.chunk.js",
     "static/js/398.697e1964.chunk.js": "/js-ninjas-superhero/static/js/398.697e1964.chunk.js",
     "static/media/photo.png": "/js-ninjas-superhero/static/media/photo.5341097d61ac71f10c44.png",
     "static/media/not-found.jpg": "/js-ninjas-superhero/static/media/not-found.d2e1a54914eeb5d7ee6a.jpg",
     "index.html": "/js-ninjas-superhero/index.html",
-    "main.da7e7622.css.map": "/js-ninjas-superhero/static/css/main.da7e7622.css.map",
-    "main.7cb1520f.js.map": "/js-ninjas-superhero/static/js/main.7cb1520f.js.map",
-    "796.c3a9affa.chunk.js.map": "/js-ninjas-superhero/static/js/796.c3a9affa.chunk.js.map",
-    "878.453688dc.chunk.js.map": "/js-ninjas-superhero/static/js/878.453688dc.chunk.js.map",
-    "845.a01500be.chunk.js.map": "/js-ninjas-superhero/static/js/845.a01500be.chunk.js.map",
+    "main.8d70d421.css.map": "/js-ninjas-superhero/static/css/main.8d70d421.css.map",
+    "main.4ac56f01.js.map": "/js-ninjas-superhero/static/js/main.4ac56f01.js.map",
+    "796.98c06c39.chunk.js.map": "/js-ninjas-superhero/static/js/796.98c06c39.chunk.js.map",
+    "905.c57b98d5.chunk.js.map": "/js-ninjas-superhero/static/js/905.c57b98d5.chunk.js.map",
+    "845.cdd0bd14.chunk.js.map": "/js-ninjas-superhero/static/js/845.cdd0bd14.chunk.js.map",
     "333.95df8106.chunk.js.map": "/js-ninjas-superhero/static/js/333.95df8106.chunk.js.map",
     "398.697e1964.chunk.js.map": "/js-ninjas-superhero/static/js/398.697e1964.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.da7e7622.css",
-    "static/js/main.7cb1520f.js"
+    "static/css/main.8d70d421.css",
+    "static/js/main.4ac56f01.js"
   ]
 }
