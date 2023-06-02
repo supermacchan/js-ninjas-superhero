@@ -6,18 +6,29 @@ export const Main = styled.main`
 
 export const Title = styled.h1`
     margin-top: 30px;
+    padding: 0 10px;
+    font-size: 22px;
     color: var(--main-text-color);
+
+    @media screen and (min-width: 768px) {
+        font-size: 32px;
+        padding: 0;
+    }
 `
 
 export const Grid = styled.section`
     max-width: 1390px;
-    padding: 40px 0 30px 0;
+    padding: 20px 0;
     margin: 0 auto;
 
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
+
+    @media screen and (min-width: 768px) {
+        padding: 40px 0 30px 0;
+    }
 `
 
 export const Button = styled.button`
@@ -25,6 +36,7 @@ export const Button = styled.button`
 
     box-sizing: border-box;
     padding: 12px 20px;
+    margin-bottom: 10px;
     border: none;
     border-radius: 5px;
 

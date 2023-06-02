@@ -23,7 +23,7 @@ export const Button = styled.span`
     cursor: pointer;
 
     box-sizing: border-box;
-    padding: 10px 15px;
+    padding: 7px 10px;
     border: none;
     border-radius: 5px;
 
@@ -31,12 +31,17 @@ export const Button = styled.span`
 
     text-transform: uppercase;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 13px;
 
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover,
     &:focus {
         background-color: var(--hover-bg-color);
+    }
+
+    @media screen and (min-width: 768px) {
+        padding: 10px 15px;
+        font-size: 16px;
     }
 `

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-    max-width: 800px;
+    max-width: 320px;
 
     margin: 0 auto;
 
@@ -11,6 +11,10 @@ export const Form = styled.form`
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    @media screen and (min-width: 768px) {
+        max-width: 800px;
+    }
 `
 
 export const Label = styled.label`
@@ -128,15 +132,27 @@ export const DeleteBtn = styled.button`
 export const MainInfo = styled.div`
     display: flex;
     justify-content: center;
-    gap: 50px;
+    flex-direction: column;
+    gap: 20px;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        gap: 50px;
+    }
 `
 
 export const AdditionalInfo = styled.div`
     display: flex;
     justify-content: center;
-    gap: 50px;
+    flex-direction: column;
+    gap: 20px;
 
     margin-top: 20px;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        gap: 50px;
+    }
 `
 
 export const Block = styled.div`

@@ -66,7 +66,7 @@ export const Modal = ({ hero, onClose }) => {
                 <Text><Heading>Catchphrase:</Heading> {hero.catch_phrase}</Text>
 
                 <Buttons>
-                    <Link to={"/edit"} onClick={handleEditClick}>
+                    <Link to={"/edit"} onClick={handleEditClick} style={{color: 'var(--main-text-color)'}}>
                         <FiEdit3 size={20} />
                     </Link>
                     <Button type='button' onClick={onClose}>
