@@ -142,11 +142,25 @@ export const EditForm = ({ info }) => {
             data.append('img', image2);
         }
 
-        data.append('nickname', nickname);
-        data.append('real_name', name);
-        data.append('origin_description', origin);
-        data.append('superpowers', powers);
-        data.append('catch_phrase', phrase);
+        if (nickname !== '') {
+            data.append('nickname', nickname);
+        }
+
+        if (name !== '') {
+            data.append('real_name', name);
+        }
+
+        if (origin !== '') {
+            data.append('origin_description', origin);
+        }
+
+        if (powers !== '') {
+            data.append('superpowers', powers); 
+        }
+        
+        if (phrase !== '') {
+            data.append('catch_phrase', phrase);
+        }
 
         return data;
     }
