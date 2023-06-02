@@ -1,19 +1,43 @@
-// import superheroes from "../../mockdb/superheroes.json";
 import { Card } from "components/Card/Card";
 import { Main, Title, Grid, Button } from "./Home.styled";
-import { nanoid } from 'nanoid';
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { selectHeroes } from "../../redux/selectors";
+import { useDispatch } from "react-redux";
 import { operations } from "../../redux/hero/operations";
 
 const Home = () => {
     const dispatch = useDispatch();
-    const superHeroes = useSelector(selectHeroes);
+    const [heroesList, setHeroesList] = useState(null);
     const [page, setPage] = useState(1);
+    const [end, setEnd] = useState(false);
 
+    // first render
     useEffect(() => {
-        dispatch(operations.getAllHeroes(page));
+        const firstRender = async () => {
+            const i = await dispatch(operations.getAllHeroes());
+            setHeroesList(i.payload.data);
+        }
+        
+        firstRender();
+    }, [dispatch]);
+
+    // load more
+    useEffect(() => {
+        if (!heroesList) {
+            return;
+        }
+
+        const fetch = async () => {
+            const info = await dispatch(operations.getAllHeroes(page));
+
+            setHeroesList(prevState => [...prevState, ...info.payload.data]);
+
+            if (info.payload.data.length < 5) {
+                setEnd(true);
+            }
+        }
+
+        fetch();
+    // eslint-disable-next-line
     }, [dispatch, page])
 
     const onLoadMoreClick = () => {
@@ -22,16 +46,18 @@ const Home = () => {
 
     return (
         <Main>
-            <Title>Check out the Superheroes!</Title>
+            <Title>Let's meet the Superheroes!</Title>
             <Grid>
-                {superHeroes.map(hero => 
+                {heroesList && heroesList.map(hero => 
                     <Card 
-                        key={nanoid()}
+                        key={hero._id}
                         hero={hero}
                     />
                 )}
             </Grid>
-            <Button type="button" onClick={onLoadMoreClick}>Load More</Button>
+            {!end &&
+                <Button type="button" onClick={onLoadMoreClick}>Load More</Button>
+            }
         </Main>
     )
 }

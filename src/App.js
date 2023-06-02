@@ -13,7 +13,6 @@ const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 const App = () => {
   return (
     <>
-
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -26,6 +25,7 @@ const App = () => {
         </Route>
       </Routes>
 
+      {/* notifications config */}
       <ToastContainer
         position="top-right"
         autoClose={3000}
