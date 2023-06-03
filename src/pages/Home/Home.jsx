@@ -50,9 +50,6 @@ const Home = () => {
     return (
         <Main>
             <Title>Let's meet the Superheroes!</Title>
-
-            {isLoading && <Loader />}
-            
             <Grid>
                 {heroesList && heroesList.map(hero => 
                     <Card 
@@ -61,6 +58,7 @@ const Home = () => {
                     />
                 )}
             </Grid>
+            {isLoading && <Loader />}
             {!end &&
                 <Button type="button" onClick={onLoadMoreClick}>Load More</Button>
             }
