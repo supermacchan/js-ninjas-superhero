@@ -59,7 +59,7 @@ const Home = () => {
                 )}
             </Grid>
             {isLoading && <Loader />}
-            {!end &&
+            {!end && !isLoading &&
                 <Button type="button" onClick={onLoadMoreClick}>Load More</Button>
             }
         </Main>
