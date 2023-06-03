@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { operations } from "../../redux/hero/operations";
+import { selectIsLoading } from "redux/selectors";
 import { Card } from "components/Card/Card";
+import { Loader } from "components/Loader/Loader";
 import { Main, Title, Grid, Button } from "./Home.styled";
 
 const Home = () => {
     const dispatch = useDispatch();
+    const isLoading = useSelector(selectIsLoading);
     const [heroesList, setHeroesList] = useState(null);
     const [page, setPage] = useState(1);
     const [end, setEnd] = useState(false);
@@ -47,6 +50,9 @@ const Home = () => {
     return (
         <Main>
             <Title>Let's meet the Superheroes!</Title>
+
+            {isLoading && <Loader />}
+            
             <Grid>
                 {heroesList && heroesList.map(hero => 
                     <Card 

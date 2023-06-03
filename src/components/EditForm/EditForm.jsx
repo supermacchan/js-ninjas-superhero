@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { operations } from "redux/hero/operations";
 import { AiOutlineCloseCircle } from 'react-icons/ai';
-import { nanoid } from "nanoid";
 import { toast } from "react-toastify";
 import { 
     Form, 
@@ -275,7 +274,7 @@ export const EditForm = ({ info }) => {
             <Gallery>
                 {pictures.map(img => {
                     return (
-                        <ImgContainer key={nanoid()} onClick={handleDeleteImage}>
+                        <ImgContainer key={img} onClick={handleDeleteImage}>
                             <Image src={img} alt={nickname} />
                             <ImgButton type="button" onClick={handleDeleteImage}>
                                 <AiOutlineCloseCircle size={40} />

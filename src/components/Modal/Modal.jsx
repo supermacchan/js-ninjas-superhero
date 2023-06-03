@@ -35,6 +35,13 @@ export const Modal = ({ hero, onClose }) => {
         }
     }, [onClose]);
 
+    // no scroll on body when modal is open
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+
+        return () => document.body.style.overflow = 'unset';
+     }, []);
+
     const handleOverlayClick = event => {
         if (event.currentTarget === event.target) {
             onClose();
@@ -42,6 +49,7 @@ export const Modal = ({ hero, onClose }) => {
     };
 
     const handleEditClick = () => {
+        onClose();
         dispatch(updateCurrent(hero._id));
     }
 
